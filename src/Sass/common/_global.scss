@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4.h5,
+h6 {
+    margin: 0px;
+    padding: 0px;
+}
+
+@function to-rem($value) {
+    @return #{calc($value / 18)}rem;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-size: to-rem(18);
+    font-weight: 400;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+
+    @include themify($themes) {
+        background-color: themed(backgroundColor);
+    }
+}
+
+
+.App {
+
+
+    .todos {
+        max-width: to-rem(540);
+        margin: auto;
+    }
+}
+

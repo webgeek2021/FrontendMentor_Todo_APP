@@ -1,0 +1,33 @@
+.banner__section {
+    @include themify($themes){
+        background: themed(banner-image);
+    }
+    // background: var(--banner-background-image);
+    padding: to-rem(78) 0 to-rem(78) 0;
+    text-align: center;
+    height: to-rem(300);
+
+    .banner__container {
+        max-width: to-rem(540);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        .banner__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: to-rem(30);
+            h1 {
+                color: $very-light-gray;
+            }
+        }
+    }
+}
+@media screen and (max-width : 375px) {
+    .banner__section{
+        .banner__container{
+            max-width: to-rem(328);
+        }
+    }
+}

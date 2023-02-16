@@ -1,0 +1,164 @@
+.todolist_section {
+    .todolist__container {
+        max-width: to-rem(540);
+        position: relative;
+        margin: auto;
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .todolist-div {
+            position: absolute;
+            top: -51px;
+            width: 100%;
+            box-shadow: 0px 18px 38px -26px grey;
+            overflow-y: scroll;
+            max-height: to-rem(372);
+
+            &::-webkit-scrollbar {
+                width: 5px;
+                position: relative;
+                right: 10px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+
+                border-radius: 4px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background-color: $very-light-grayish-blue;
+                border-radius: 4px;
+            }
+
+
+            .todo-field {
+                border-radius: 0px;
+                @include themify($themes){
+                    border-bottom: 1px solid themed(borderColor);                    
+                }   
+
+                &:first-child {
+                    border-top-left-radius: to-rem(10);
+                    border-top-right-radius: to-rem(10);
+                }
+            }
+
+            &:last-child {
+                border-bottom-left-radius: to-rem(10);
+                border-bottom-right-radius: to-rem(10);
+            }
+
+            footer {
+                display: flex;
+                justify-content: space-between;
+                padding: to-rem(18) to-rem(24);
+                align-items: center;
+                @include themify($themes){
+                    background-color: themed(todoBackgroundColor);
+                    border-top: 1px solid themed(borderColor);
+
+                }
+                // background-color: white;
+                position: sticky;
+                bottom: 0;
+                
+                span {
+                    
+                    @include themify($themes){
+                        color: themed(footerfontColor);
+                    }
+                    font-size: to-rem(14);
+                }
+
+                button {
+                    cursor: pointer;
+                    background: transparent;
+                    outline: none;
+                    border: none;
+                    font-size: to-rem(14);
+                    font-family: 'Outfit', sans-serif;
+                    @include themify($themes){
+                        color: themed(footerfontColor);
+                    }
+                    font-weight: 600;
+                    
+                    &:hover {
+                        // color: $very-dark-desaturated-blue;
+                        @include themify($themes){
+                            color: themed(footerHoverColor);
+                        }
+                    }
+                }
+
+                .badges {
+
+                    button {
+                        
+
+                        &:hover {
+                            @include themify($themes){
+                                color: themed(footerHoverColor);
+                            }
+                        }
+
+                        &:not(:last-child) {
+                            margin-right: to-rem(18);
+                        }
+                    }
+                    .active-badge {
+                        color: $bright-blue;
+                    }
+
+                }
+            }
+
+        }
+
+        p {
+            font-size: to-rem(14);
+            font-family: 'Outfit', 'sans-serif';
+            color: $very-dark-grayish-blue;
+            font-weight: 600;
+            position: absolute;
+            bottom: -357px;
+            margin: auto;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .section_title{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width : 375px) {
+    .todolist_section{
+        .todolist__container{
+            max-width: to-rem(328);
+            .todolist-div{
+                footer{
+                    display: grid;
+                    grid-template-areas: 
+                    'span span span completed completed completed'
+                    'options options options options options options';
+                    text-align: center;
+                    span{
+                        grid-area: span;
+                    }
+                    .badges{
+                        grid-area: options;
+                    }
+                    button{
+                        grid-area: completed;
+                    }
+
+                }
+            }
+        }
+    }
+}

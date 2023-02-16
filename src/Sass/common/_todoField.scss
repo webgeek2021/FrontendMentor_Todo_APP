@@ -1,0 +1,86 @@
+.todo-field{
+    display: flex;
+    padding: to-rem(20) to-rem(23);
+    justify-content: space-between;
+    align-items: center;
+    // background-color: $very-light-gray;
+    @include themify($themes){
+        background-color: themed(todoBackgroundColor);
+        color: themed(todofontColor);
+    }
+    // background-color:var(--todo-background-color);
+    width: 100%;
+    border-radius: to-rem(10);
+    .todo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .check-btn{
+            width: 25px;
+            height: 25px;
+            border: 1px solid $very-light-grayish-blue;
+            border-radius: 50%;
+            margin-right: to-rem(24);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .check{
+            img{
+                opacity: 0;
+            }
+            &:hover{
+                background: $check-background;
+                img{
+                    opacity: 0;
+                    background-color: $check-btn-background-color;
+                    border-radius: 50%;
+                    width: 19px;
+                    height: 19px;
+                }
+            }
+        }
+        .check-active{
+            background: $check-background;
+            img{
+                opacity: 1;
+            }
+        }
+        input[type=text]{
+            width: 85%;
+            background: none;
+            border: none;
+            font-weight: 500;
+            &:focus{
+                outline: none;
+            }
+            cursor: pointer;
+
+        }
+        .task{
+            // color: $very-dark-grayish-blue;
+            @include themify($themes){
+                color: themed(todofontColor);
+            }            
+        }
+        .task-done{
+            text-decoration:line-through;
+            // color: $very-light-grayish-blue;
+            @include themify($themes){
+                color: themed(todoCompleteFontColor);
+            }
+
+        }
+    }
+    .cross-img{
+        cursor: pointer;
+        opacity: 0;
+    }
+    &:hover{
+        .cross-img{
+            opacity: 1;
+        }
+    }
+}
