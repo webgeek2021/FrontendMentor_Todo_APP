@@ -1,13 +1,10 @@
 import React from 'react'
 import TodoField from './TodoField'
-import { nanoid } from 'nanoid'
+
 import { DragDropContext, Draggable } from 'react-beautiful-dnd'
 import { StrictModeDroppable as Droppable } from './StrictModeDroppable'
-import { data } from '../data'
+
 const TodoList = (props) => {
-
-
-  
 
   const handleOnDragEnd = (result) => {
     // console.log("Result", result)

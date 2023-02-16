@@ -1,13 +1,7 @@
 import React from "react";
 import { Banner } from "./Component/Banner";
 import TodoList from "./Component/TodoList";
-import { nanoid } from "nanoid";
 
-import { DragDropContext ,Droppable} from "react-beautiful-dnd";
-import { data } from './data'
-import moon_icon from "./assets/images/icon-moon.svg"
-import sun_icon from "./assets/images/icon-sun.svg"
-import TodoField from '././Component/TodoField'
 export const TodoData = React.createContext()
 function App() {
   
@@ -87,7 +81,7 @@ function App() {
     let index = arr.findIndex(item => item.id === id)
     console.log(index)
     arr.splice(index,1)
-    console.log("After Deletion",arr)
+    // console.log("After Deletion",arr)
     localStorage.setItem("Todos",JSON.stringify(arr))
     setTodoDetails(arr)
   }
