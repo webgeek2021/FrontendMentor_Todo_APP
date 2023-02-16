@@ -27,7 +27,7 @@ function App() {
     let arr = JSON.parse(localStorage.getItem("Todos"))
     if(arr){
       let newArr = []
-      arr.map((a)=>{
+      arr.forEach((a)=>{
         if(a.completed)
         {
           newArr.push(a)
@@ -41,7 +41,7 @@ function App() {
   React.useEffect(()=>{
     let arr = [...todoDetails]
     let count = 0;
-    arr.map((a)=>{
+    arr.forEach((a)=>{
       if(!a.completed)
       {
         count++;
@@ -53,7 +53,7 @@ function App() {
     let arr = JSON.parse(localStorage.getItem("Todos"))
     if(arr){
       let newArr = []
-      arr.map((a)=>{
+      arr.forEach((a)=>{
         if(!a.completed)
         {
           newArr.push(a)
@@ -79,7 +79,7 @@ function App() {
   const handleDelete = (id) => {
     let  arr = [...todoDetails]
     let index = arr.findIndex(item => item.id === id)
-    console.log(index)
+    // console.log(index)
     arr.splice(index,1)
     // console.log("After Deletion",arr)
     localStorage.setItem("Todos",JSON.stringify(arr))
@@ -89,7 +89,7 @@ function App() {
   const clearCompleted = ()=>{
     let arr = [...todoDetails]
     let newArr = []
-    arr.map((a)=>{
+    arr.forEach((a)=>{
       if(!a.completed)
       {
         newArr.push(a)
